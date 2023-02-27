@@ -52,7 +52,7 @@ export const UserInfo = () => {
       }
       refetch();
     } catch (error) {
-      console.log(error);
+      //  console.log(error);
     }
   };
   return (

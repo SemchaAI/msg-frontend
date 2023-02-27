@@ -31,12 +31,12 @@ export const FormRegister = () => {
   const [email, setEmail] = useState(getValues("email"));
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     try {
       await createUser(data);
       navigate("/login");
     } catch (error) {
-      console.log(error);
+      //  console.log(error);
     }
   };
 

@@ -21,8 +21,8 @@ export const SendMsgForm = ({ avatarUrl, nickname }) => {
 
   const onSubmit = async (data, event) => {
     event.preventDefault();
-    console.log(data);
-    console.log(avatarUrl, nickname);
+    // console.log(data);
+    // console.log(avatarUrl, nickname);
     const correctData = {
       ...data,
       nickname,
@@ -31,7 +31,7 @@ export const SendMsgForm = ({ avatarUrl, nickname }) => {
     try {
       await postMsg(correctData);
     } catch (error) {
-      console.log(error);
+      //  console.log(error);
     }
   };
 

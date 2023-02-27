@@ -26,12 +26,12 @@ export const GlobalForm = () => {
   const handleScroll = (event) => {
     if (event.currentTarget.scrollTop === 0) {
       setHidden(false);
-      console.log(hidden);
+      //console.log(hidden);
     } else {
       setHidden(true);
     }
-    console.log(event.currentTarget.scrollTop);
-    console.log(hidden);
+    // console.log(event.currentTarget.scrollTop);
+    // console.log(hidden);
   };
 
   const { data: userData } = userApi.useGetMeQuery(1, {

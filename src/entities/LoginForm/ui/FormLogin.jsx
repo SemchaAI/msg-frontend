@@ -40,7 +40,7 @@ export const FormLogin = () => {
   const onSubmit = async (data) => {
     const UserData = await loginUser(data);
     const UserToken = dispatch(setAll(UserData.data));
-    console.log(UserToken.payload.token);
+    // console.log(UserToken.payload.token);
     if (UserToken.payload.token !== "") {
       localStorage.setItem("token", UserToken.payload.token);
       navigate("/home");
