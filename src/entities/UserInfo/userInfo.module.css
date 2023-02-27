@@ -1,0 +1,53 @@
+.allAboutUser{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.personalInfo{
+    padding:  20px 15px;
+    position: relative;
+
+    display: flex;
+}
+.personalInfo::after{
+    content: "";
+    left    : 15px;
+    right: 15px;
+    bottom  : 0;
+    position: absolute;
+    border-bottom: 1px solid var(--neutral-grey);
+}
+.img{
+    border-radius: 35px;
+}
+.userInfo{
+    margin-left: 15px;
+
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+
+    color: var(--neutral-darkest-grey);
+
+    
+}
+.email{
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+
+    color: var(--primary-blue);
+}
+.text{
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 230px;
+    gap: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+
+}

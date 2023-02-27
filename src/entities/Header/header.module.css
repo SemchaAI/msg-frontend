@@ -1,0 +1,32 @@
+.header{
+    height: 50px;
+    border-bottom: 1px solid var(--primary-light-blue);
+
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+
+    align-items: center;
+}
+.location{
+    display: flex;
+    gap: 10px;
+}
+
+.locationName{
+    align-self: center;
+    
+    color: var(--positive-dark);
+}
+.locationName::first-letter {
+    text-transform:capitalize;
+}
+.signOut{
+    background-color: var(--primary-blue);
+    border-radius: 5px;
+    color: var(--white);
+    padding: 10px;
+}
+.signOut:hover, .signOut:focus{
+    background-color: var(--primary-dark-blue);
+}

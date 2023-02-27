@@ -1,0 +1,30 @@
+.listBar{
+    display: flex;
+    justify-content: space-between;
+    margin: 24px 15px 24px 15px;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999; 
+
+}
+
+.color{
+    stroke: var(--neutral-grey);
+}
+.primary{
+    stroke: var(--primary-blue) !important;
+    position: relative
+}
+.primary::before {
+    content: '';
+    top: 17px;
+    left: 8px;
+    width: 6px;
+    height: 5px;
+    position: absolute;
+    border-bottom:2px solid  var(--primary-blue);
+    border-radius: 2px;
+}
