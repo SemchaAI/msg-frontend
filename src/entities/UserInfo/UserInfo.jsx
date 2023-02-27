@@ -6,7 +6,7 @@ import styles from "./userInfo.module.css";
 
 import { ReactComponent as Avatar } from "./images/avatar.svg";
 import { userApi } from "../services/userServices";
-import { API_URL, API_URL_SITE } from "../../shared/config";
+import { API_URL } from "../../shared/config";
 export const UserInfo = () => {
   const dispatch = useDispatch();
   const User = useSelector(selectUser);

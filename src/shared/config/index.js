@@ -8,4 +8,4 @@ const getEnvVar = (key) => {
 };
 
 export const API_URL = getEnvVar("REACT_APP_BASE_URL");
-export const API_URL_SITE = getEnvVar("REACT_APP_SITE_URL");
+// export const API_URL_SITE = getEnvVar("REACT_APP_SITE_URL");
