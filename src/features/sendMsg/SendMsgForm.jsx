@@ -5,7 +5,7 @@ import styles from "./sendMsgForm.module.css";
 import cn from "classnames";
 import { userApi } from "../../entities/services/userServices";
 
-export const SendMsgForm = ({ avatarUrl, nickname }) => {
+export const SendMsgForm = ({ avatarUrl, nickname, id }) => {
   const form = useForm({
     mode: "onChange", //mode: onChange | onBlur | onSubmit | onTouched | all
   });
@@ -18,20 +18,25 @@ export const SendMsgForm = ({ avatarUrl, nickname }) => {
 
   const [text, setText] = useState(getValues("text"));
   const [postMsg, { error }] = userApi.usePostMessageMutation();
+  const [createMsg, { error: createMsgErr }] =
+    userApi.useCreateMessageMutation();
 
   const onSubmit = async (data, event) => {
     event.preventDefault();
-    // console.log(data);
+    //console.log(data);
     // console.log(avatarUrl, nickname);
     const correctData = {
       ...data,
       nickname,
       avatarUrl,
+      id,
     };
     try {
-      await postMsg(correctData);
+      if (id) {
+        await createMsg(correctData);
+      } else await postMsg(correctData);
     } catch (error) {
-      //  console.log(error);
+      console.log(error);
     }
   };
 
