@@ -81,8 +81,8 @@
     color: var(--primary-blue);
 }
 .btn{
-    background-color: var(--primary-blue);
-    color: var(--white);
+    background-color: var(--colors-button);
+    color: var(--colors-text-dg-lw);
     
     padding: 10px 15px;
     border-radius: 10px;
@@ -91,7 +91,7 @@
     background-color: var(--primary-dark-blue);
 }
 .added{
-    color: var( --white);
+    color: var(--colors-text-dg-lw);
     background-color: var(--positive);
     padding: 15px 5px;
     border-radius: 10px;

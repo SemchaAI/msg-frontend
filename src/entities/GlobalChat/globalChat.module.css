@@ -28,6 +28,9 @@
 .btn:hover, .btn:focus{
     background-color: var(--primary-dark-blue);
 }
+.btn svg {
+    stroke: var(--colors-text-dg-lw);
+}
 
 .globalChat{
     display: flex;
