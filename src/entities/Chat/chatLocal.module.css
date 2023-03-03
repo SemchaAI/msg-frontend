@@ -22,7 +22,7 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
 
-    color: var(--colors-text);
+    color: var(--colors-text-dg-lw);
     background-color: var(--colors-button);
 }
 .btn:hover, .btn:focus{

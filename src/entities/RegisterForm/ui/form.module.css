@@ -78,7 +78,7 @@
 
 
     background-color: var(--primary-dark-blue);
-    color: var(--colors-text);
+    color: var(--colors-text-dg-lw);
 
     cursor: pointer;
 }
