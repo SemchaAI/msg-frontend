@@ -22,8 +22,8 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
 
-    color: var(--white);
-    background-color: var(--primary-blue);
+    color: var(--colors-text);
+    background-color: var(--colors-button);
 }
 .btn:hover, .btn:focus{
     background-color: var(--primary-dark-blue);
@@ -34,9 +34,12 @@
     flex-direction: column;
     overflow: hidden;
     max-height: 550px;
+
+    background-color: var(--colors-bg1000);
 }
 .msgList{
     overflow-y: scroll;
+    background-color: var(--colors-bg1000);
 }
 .msgList::-webkit-scrollbar {
     display: none;
@@ -70,7 +73,7 @@
     padding: 0 20px;
 
     flex-wrap: wrap;
-    color: var(--white);
+    color: var(--colors-text-dg-lw);
 
     font-style: normal;
     font-weight: 400;
@@ -80,13 +83,13 @@
 }
 
 .right .message{
-    background-color: var(--primary-blue);
+    background-color: var(--colors-button);
     margin-right: 8px;
 }
 .left .message {
-    background-color: var(--neutral-more-light-grey);
-    color: var(--neutral-darkest-grey);
-    border: 0.5px solid var(--neutral-grey);;
+    background-color: var(--colors-msg);
+    color: var(--colors-text-dw-lg);
+    border: 0.5px solid var(--colors-text-dw-lg);
     margin-left: 8px;
 }
 .userInfo{
@@ -114,7 +117,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
-    color: var(--primary-dark-blue);
+    color: var(--colors-button);
     text-transform: lowercase;
 }
 .nickname:first-letter {
@@ -124,5 +127,8 @@
 .pageControls{
     display: flex;
     justify-content: space-between;
+    background-color: var(--colors-bg-controls);
+}
+.button{
     margin: 5px 15px;
 }
