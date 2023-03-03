@@ -1,0 +1,134 @@
+.hidden{
+    display: block;
+    visibility: hidden;
+
+}
+
+
+.btn{
+    display: flex;
+
+    width: fit-content;
+    height: 30px;
+
+    padding: 10px 20px;
+
+    border-radius: 20px;
+
+    align-items: center;
+
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+
+    color: var(--colors-text);
+    background-color: var(--colors-button);
+}
+.btn:hover, .btn:focus{
+    background-color: var(--primary-dark-blue);
+}
+
+.globalChat{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 550px;
+
+    background-color: var(--colors-bg1000);
+}
+.msgList{
+    overflow-y: scroll;
+    background-color: var(--colors-bg1000);
+}
+.msgList::-webkit-scrollbar {
+    display: none;
+}
+.msgBlock{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    justify-items: right;
+}
+.right{
+    margin-left: 48px;
+    margin-right: 16px;
+
+    display: flex;
+    justify-content: right;
+    
+}
+.left{
+    margin-left: 16px;
+    margin-right: 48px;
+    display: flex;
+    justify-content: left;
+    flex-direction: row-reverse;
+}
+
+.message{
+    display: flex;
+    
+  
+    align-content: center;
+    padding: 0 20px;
+
+    flex-wrap: wrap;
+    color: var(--colors-text-dg-lw);
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+
+    border-radius: 20px;
+}
+
+.right .message{
+    background-color: var(--colors-button);
+    margin-right: 8px;
+}
+.left .message {
+    background-color: var(--colors-msg);
+    color: var(--colors-text-dw-lg);
+    border: 0.5px solid var(--colors-text-dw-lg);
+    margin-left: 8px;
+}
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.right .userInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+.left .userInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+.avatar{
+    border-radius: 30px;
+}
+.nickname{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--colors-button);
+    text-transform: lowercase;
+}
+.nickname:first-letter {
+    text-transform: uppercase;
+}
+
+.pageControls{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--colors-bg-controls);
+}
+.button {
+    margin: 5px 15px;
+}
