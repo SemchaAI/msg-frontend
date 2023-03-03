@@ -97,7 +97,7 @@
     color: var(--neutral-grey);
 }
 .loginLinkButton{
-    color: var(--primary-blue);
+    color: var(--colors-button);
     font-weight: inherit;
     font-size: inherit;
     cursor: pointer;
