@@ -7,6 +7,7 @@
     padding: 0 20px;
 
     align-items: center;
+    background-color: var(--colors-bg-controls);
 }
 .location{
     display: flex;
@@ -16,15 +17,15 @@
 .locationName{
     align-self: center;
     
-    color: var(--positive-dark);
+    color: var(--colors-positive);
 }
 .locationName::first-letter {
     text-transform:capitalize;
 }
 .signOut{
-    background-color: var(--primary-blue);
+    background-color: var(--colors-button);
     border-radius: 5px;
-    color: var(--white);
+    color: var(--colors-text-dg-lw);
     padding: 10px;
 }
 .signOut:hover, .signOut:focus{

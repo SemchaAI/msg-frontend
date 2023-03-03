@@ -17,9 +17,9 @@ export const Header = () => {
   const clickHandler = () => {
     localStorage.removeItem("token");
     dispatch(setClear());
-    if (user.token === "") {
-      navigate("/login");
-    }
+    // if (user.token === "") {
+    navigate("/login");
+    // }
   };
   return (
     <header className={styles.header}>
