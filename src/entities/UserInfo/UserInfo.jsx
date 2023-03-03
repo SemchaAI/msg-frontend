@@ -61,7 +61,7 @@ export const UserInfo = () => {
       };
       await changeAvatar(currLink);
       await updateAvatars(currLink);
-      if (User.avatarUrl) {
+      if (User.avatarUrl && User.avatarUrl !== "/uploads/avatar.svg") {
         const oldlink = {
           linkImg: User.avatarUrl,
         };
@@ -78,20 +78,14 @@ export const UserInfo = () => {
         {data && (
           <>
             <div className={styles.personalInfo}>
-              {data.avatarUrl ? (
-                <img
-                  className={styles.img}
-                  src={API_URL + data.avatarUrl}
-                  width="96px"
-                  height="96px"
-                  onClick={() => inputFileRef.current.click()}
-                  alt="default avatar"
-                ></img>
-              ) : (
-                <>
-                  <Avatar onClick={() => inputFileRef.current.click()}></Avatar>
-                </>
-              )}
+              <img
+                className={styles.img}
+                src={API_URL + data.avatarUrl}
+                width="96px"
+                height="96px"
+                onClick={() => inputFileRef.current.click()}
+                alt="default avatar"
+              ></img>
               <input
                 ref={inputFileRef}
                 onChange={changeFileHandler}
@@ -117,23 +111,13 @@ export const UserInfo = () => {
             {data.friendsReq.map((val, index) => (
               <li key={val._id} className={styles.listCard}>
                 <div className={styles.listCardBlock}>
-                  {val.avatarUrl ? (
-                    <img
-                      className={styles.avatar}
-                      src={API_URL + val.avatarUrl}
-                      height={"40px"}
-                      width={"40px"}
-                      alt="avatar"
-                    ></img>
-                  ) : (
-                    <img
-                      className={styles.avatar}
-                      src={"./images/avatar.svg"}
-                      height={"40px"}
-                      width={"40px"}
-                      alt="avatar"
-                    ></img>
-                  )}
+                  <img
+                    className={styles.avatar}
+                    src={API_URL + val.avatarUrl}
+                    height={"40px"}
+                    width={"40px"}
+                    alt="avatar"
+                  ></img>
                   <div className={styles.cardInfo}>
                     <div className={styles.nickname}>{val.nickname}</div>
                     <div>{val.email}</div>

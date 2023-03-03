@@ -25,23 +25,13 @@ export const MiniChatsList = () => {
                 className={styles.listCardBlock}
                 onClick={() => clickHandler(el._id)}
               >
-                {el.avatarUrl ? (
-                  <img
-                    className={styles.avatar}
-                    src={API_URL + el.avatarUrl}
-                    height={"40px"}
-                    width={"40px"}
-                    alt="avatar"
-                  ></img>
-                ) : (
-                  <img
-                    className={styles.avatar}
-                    src={"./images/avatar.svg"}
-                    height={"40px"}
-                    width={"40px"}
-                    alt="avatar"
-                  ></img>
-                )}
+                <img
+                  className={styles.avatar}
+                  src={API_URL + el.avatarUrl}
+                  height={"40px"}
+                  width={"40px"}
+                  alt="avatar"
+                ></img>
                 <div className={styles.cardInfo}>
                   <h3 className={styles.nickname}>{el.nickname}</h3>
                   <div>Tap To Open chat</div>

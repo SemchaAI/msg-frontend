@@ -68,23 +68,13 @@ export const ChatLocal = () => {
                   <p className={styles.message}>{elem.text}</p>
                   <div className={styles.userInfo}>
                     <h3 className={styles.nickname}>{elem.nickname}</h3>
-                    {elem.avatarUrl ? (
-                      <img
-                        className={styles.avatar}
-                        src={API_URL + elem.avatarUrl}
-                        height={"40px"}
-                        width={"40px"}
-                        alt="avatar"
-                      ></img>
-                    ) : (
-                      <img
-                        className={styles.avatar}
-                        src={"./images/avatar.svg"}
-                        height={"40px"}
-                        width={"40px"}
-                        alt="avatar"
-                      ></img>
-                    )}
+                    <img
+                      className={styles.avatar}
+                      src={API_URL + elem.avatarUrl}
+                      height={"40px"}
+                      width={"40px"}
+                      alt="avatar"
+                    ></img>
                   </div>
                   <div ref={messagesEndRef} />
                 </li>
