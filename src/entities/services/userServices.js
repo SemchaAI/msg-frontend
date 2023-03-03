@@ -13,7 +13,7 @@ export const userApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["User", "Messages"],
+  tagTypes: ["User", "Messages", "Friends"],
   endpoints: (builder) => ({
     getMe: builder.query({
       query: () => ({
@@ -26,6 +26,54 @@ export const userApi = createApi({
         url: `/message?page=${page}`,
       }),
       providesTags: (result) => ["Messages"],
+    }),
+    findUser: builder.query({
+      query: (nickname) => ({
+        url: `/find/user?nickname=${nickname}`,
+      }),
+      providesTags: (result) => ["User"],
+    }),
+    findRandom: builder.query({
+      query: () => ({
+        url: "/find/random",
+      }),
+      providesTags: (result) => ["User"],
+    }),
+    getChat: builder.query({
+      query: ({ id, page }) => ({
+        url: `/group/chat/${id}/${page}`,
+      }),
+      providesTags: (result) => ["User"],
+    }),
+    createMessage: builder.mutation({
+      query: (post) => ({
+        url: `/group/chat/message/${post.id}`,
+        method: "POST",
+        body: post,
+      }),
+      providesTags: (result) => ["User"],
+    }),
+    addFriend: builder.mutation({
+      query: (post) => ({
+        url: `/add/friend`,
+        method: "POST",
+        body: post,
+      }),
+      providesTags: (result) => ["User"],
+    }),
+    removeFriendReq: builder.mutation({
+      query: (post) => ({
+        url: `/delete/friendReq/${post}`,
+        method: "PUT",
+      }),
+      providesTags: (result) => ["User"],
+    }),
+    addFriendReq: builder.mutation({
+      query: (post) => ({
+        url: `/add/friendReq/${post}`,
+        method: "PUT",
+      }),
+      providesTags: (result) => ["User"],
     }),
     postMessage: builder.mutation({
       query: (post) => ({
