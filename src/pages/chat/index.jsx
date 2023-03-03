@@ -1,15 +1,15 @@
 import React from "react";
+import { ChatLocal } from "../../entities/Chat/ChatLocal";
 import { Header } from "../../entities/Header/Header";
-import { MiniChatsList } from "../../entities/MiniChats/MiniChatsList";
 import { Footer } from "../../entities/Nav(Footer)/Footer";
 
-const Chats = () => {
+const Chat = () => {
   return (
     <div>
       <Header />
-      <MiniChatsList />
+      <ChatLocal />
       <Footer />
     </div>
   );
 };
-export default Chats;
+export default Chat;

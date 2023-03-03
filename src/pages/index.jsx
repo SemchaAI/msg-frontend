@@ -11,6 +11,7 @@ const HomePage = lazy(() => import("./home"));
 const ProfilePage = lazy(() => import("./profile"));
 const SearchPage = lazy(() => import("./search"));
 const ChatsPage = lazy(() => import("./chats"));
+const ChatPage = lazy(() => import("./chat"));
 
 export const Routing = () => {
   const router = createBrowserRouter(
@@ -22,6 +23,7 @@ export const Routing = () => {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/chats" element={<ChatsPage />} />
+        <Route path="/chat/:id" element={<ChatPage />} />
         <Route path="*" element={<h1>Error</h1>} />
       </>
     )
