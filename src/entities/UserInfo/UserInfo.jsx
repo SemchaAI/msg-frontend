@@ -4,6 +4,9 @@ import { selectUser, setAll } from "../redux/user";
 
 import styles from "./userInfo.module.css";
 
+import { ReactComponent as Add } from "./images/add.svg";
+import { ReactComponent as Decline } from "./images/decline.svg";
+
 import { ReactComponent as Avatar } from "./images/avatar.svg";
 import { userApi } from "../services/userServices";
 import { API_URL } from "../../shared/config";
@@ -12,6 +15,7 @@ export const UserInfo = () => {
   const User = useSelector(selectUser);
 
   // const [avatar, setAvatar] = useState();
+
   const inputFileRef = useRef();
 
   const [uploadAvatar, { error }] = userApi.useUploadImageUserMutation();
@@ -25,7 +29,20 @@ export const UserInfo = () => {
     isLoading,
     error: getMeError,
     refetch,
-  } = userApi.useGetMeQuery();
+  } = userApi.useGetMeQuery(null, { pollingInterval: 5000 });
+
+  const [removeFriendReq, { error: removeErr }] =
+    userApi.useRemoveFriendReqMutation();
+  const [addFriendReq, { error: addErr }] = userApi.useAddFriendReqMutation();
+
+  const clickHandlerRemove = async (id) => {
+    await removeFriendReq(id);
+    refetch();
+  };
+  const clickHandlerAdd = async (id) => {
+    await addFriendReq(id);
+    refetch();
+  };
 
   useEffect(() => {
     dispatch(setAll(data));
@@ -92,7 +109,62 @@ export const UserInfo = () => {
           </>
         )}
       </section>
-      <div className="inProcess">Here will be some settings in future</div>
+      {/* <div className="inProcess">Here will be some settings in future</div> */}
+      {data && data.friendsReq ? (
+        <>
+          <h3 className={styles.listH3}>Friend requests</h3>
+          <ul className={styles.listContainer}>
+            {data.friendsReq.map((val, index) => (
+              <li key={val._id} className={styles.listCard}>
+                <div className={styles.listCardBlock}>
+                  {val.avatarUrl ? (
+                    <img
+                      className={styles.avatar}
+                      src={API_URL + val.avatarUrl}
+                      height={"40px"}
+                      width={"40px"}
+                      alt="avatar"
+                    ></img>
+                  ) : (
+                    <img
+                      className={styles.avatar}
+                      src={"./images/avatar.svg"}
+                      height={"40px"}
+                      width={"40px"}
+                      alt="avatar"
+                    ></img>
+                  )}
+                  <div className={styles.cardInfo}>
+                    <div className={styles.nickname}>{val.nickname}</div>
+                    <div>{val.email}</div>
+                  </div>
+                </div>
+                {/* {!data.friends.map((el) => el._id.includes(data.friends._id))
+                  .length ? ( */}
+                <>
+                  <button
+                    onClick={() => clickHandlerAdd(val._id)}
+                    className={styles.btnAdd}
+                  >
+                    <Add />
+                  </button>
+                  <button
+                    onClick={() => clickHandlerRemove(val._id)}
+                    className={styles.btnDecline}
+                  >
+                    <Decline />
+                  </button>
+                </>
+                {/* ) : (
+                  <div className={styles.added}>Added</div>
+                )} */}
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <div>No requests</div>
+      )}
     </>
   );
 };
