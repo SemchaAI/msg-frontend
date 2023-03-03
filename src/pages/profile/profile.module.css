@@ -4,4 +4,6 @@
 .main{
     display: flex;
     flex-direction: column;
+    background-color: var(--colors-bg1000);
+    color: var(--colors-text-dw-lg);
 }
