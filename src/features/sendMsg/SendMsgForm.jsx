@@ -54,6 +54,8 @@ export const SendMsgForm = ({ avatarUrl, nickname, id }) => {
           {...register("text", {
             required: true,
             minLength: 1,
+            maxLength: 15,
+            pattern: /(?!.*(.)\1\1)^(?:[A-Za-z0-9]|[А-Яа-я0-9])/g,
           })}
           onBlur={(e) => setText(e.target.value)}
         />
