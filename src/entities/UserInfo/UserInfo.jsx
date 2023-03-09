@@ -90,6 +90,7 @@ export const UserInfo = () => {
                 ref={inputFileRef}
                 onChange={changeFileHandler}
                 type={"file"}
+                accept="image/x-png,image/gif,image/jpeg"
                 hidden
               ></input>
               <div className={styles.userInfo}>
