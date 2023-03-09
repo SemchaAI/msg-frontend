@@ -5,7 +5,10 @@ export const useChatList = () => {
   const [hidden, setHidden] = useState(true);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({
+      block: "end",
+      behavior: "smooth",
+    });
   };
 
   const handleScroll = (event) => {
