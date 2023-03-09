@@ -6,7 +6,6 @@ export const useChatList = () => {
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
-      block: "end",
       behavior: "smooth",
     });
   };
