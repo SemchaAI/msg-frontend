@@ -83,6 +83,11 @@ export const SearchFriends = () => {
             Search
           </button>
         </div>
+        {isloadingRandom && (
+          <div className={styles.loader}>
+            <BeatLoader color="#36d7b7" size={20} />
+          </div>
+        )}
       </div>
       {randomUsers && !userData && (
         <>
@@ -150,7 +155,6 @@ export const SearchFriends = () => {
           )}
         </div>
       )}
-      {isloadingRandom && <BeatLoader color="#36d7b7" />}
     </section>
   );
 };

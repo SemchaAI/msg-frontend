@@ -98,3 +98,7 @@
     font-weight: 400;
     font-size: small;
 }
+.loader{
+    margin-top: 33vh;
+    width: 100%;
+}
