@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./chatList.module.css";
 import cn from "classnames";
 import { API_URL } from "../../shared/config";
@@ -10,6 +10,7 @@ import { useChatList } from "./hooks/useChatList";
 
 export const ChatList = ({ data, userData, setPage, page, params }) => {
   const [messagesEndRef, hidden, scrollToBottom, handleScroll] = useChatList();
+
   return (
     <section className={styles.globalChat}>
       {data && userData && (
@@ -37,9 +38,9 @@ export const ChatList = ({ data, userData, setPage, page, params }) => {
                       alt="avatar"
                     ></img>
                   </div>
-                  <div ref={messagesEndRef} />
                 </li>
               ))}
+            <div ref={messagesEndRef} />
           </ul>
           <div className={styles.pageControls}>
             <button
@@ -71,6 +72,7 @@ export const ChatList = ({ data, userData, setPage, page, params }) => {
             </button>
           </div>
           <SendMsgForm
+            scroll={scrollToBottom}
             id={params.id}
             nickname={userData.nickname}
             avatarUrl={userData.avatarUrl}
