@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import styles from "./sendMsgForm.module.css";
 import cn from "classnames";
 import { userApi } from "../../entities/services/userServices";
 
-export const SendMsgForm = ({ avatarUrl, nickname, id }) => {
+export const SendMsgForm = ({ avatarUrl, nickname, id, scroll }) => {
   const form = useForm({
     mode: "onChange", //mode: onChange | onBlur | onSubmit | onTouched | all
   });
@@ -20,9 +20,9 @@ export const SendMsgForm = ({ avatarUrl, nickname, id }) => {
   const [postMsg, { error }] = userApi.usePostMessageMutation();
   const [createMsg, { error: createMsgErr }] =
     userApi.useCreateMessageMutation();
+  let [scrollFlag, setScrollFlag] = useState(false);
 
-  const onSubmit = async (data, event) => {
-    event.preventDefault();
+  const onSubmit = async (data) => {
     //console.log(data);
     // console.log(avatarUrl, nickname);
     const correctData = {
@@ -34,11 +34,18 @@ export const SendMsgForm = ({ avatarUrl, nickname, id }) => {
     try {
       if (id) {
         await createMsg(correctData);
-      } else await postMsg(correctData);
+      } else {
+        await postMsg(correctData);
+      }
+      setScrollFlag(!scrollFlag);
+      console.log(scrollFlag);
     } catch (error) {
       console.log(error);
     }
   };
+  useEffect(() => {
+    scroll();
+  }, [scrollFlag]);
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -50,11 +57,12 @@ export const SendMsgForm = ({ avatarUrl, nickname, id }) => {
           })}
           type="text"
           placeholder="...message"
+          autoComplete="off"
           name="text"
           {...register("text", {
             required: true,
             minLength: 1,
-            maxLength: 15,
+            maxLength: 150,
             pattern: /(?!.*(.)\1\1)^(?:[A-Za-z0-9]|[А-Яа-я0-9])/g,
           })}
           onBlur={(e) => setText(e.target.value)}
