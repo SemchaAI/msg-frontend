@@ -37,15 +37,20 @@ export const SendMsgForm = ({ avatarUrl, nickname, id, scroll }) => {
       } else {
         await postMsg(correctData);
       }
-      setScrollFlag(!scrollFlag);
-      console.log(scrollFlag);
+      setScrollFlag(true);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    scroll();
-  }, [scrollFlag]);
+    const timeOut = setTimeout(() => {
+      if (scrollFlag) {
+        scroll();
+        setScrollFlag(false);
+      }
+    }, 1000);
+    return () => clearTimeout(timeOut);
+  }, [scroll]);
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
