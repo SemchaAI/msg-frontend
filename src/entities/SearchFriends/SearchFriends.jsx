@@ -8,6 +8,7 @@ import { API_URL } from "../../shared/config";
 
 import { ReactComponent as Search } from "./images/search.svg";
 import { BeatLoader } from "react-spinners";
+import { Avatar } from "../../features/avatar/Avatar";
 
 export const SearchFriends = () => {
   const [skip, setSkip] = useState(true);
@@ -48,6 +49,7 @@ export const SearchFriends = () => {
       nickname: meData.nickname,
       email: meData.email,
       avatarUrl: meData.avatarUrl,
+      gender: meData.gender,
     });
     randRefetch();
   };
@@ -95,13 +97,7 @@ export const SearchFriends = () => {
             {[...randomUsers.randomUsers].map((val, index) => (
               <li key={val._id} className={styles.listCard}>
                 <div className={styles.listCardBlock}>
-                  <img
-                    className={styles.avatar}
-                    src={API_URL + val.avatarUrl}
-                    height={"40px"}
-                    width={"40px"}
-                    alt="avatar"
-                  ></img>
+                  <Avatar data={val} size={40} />
                   <div className={styles.cardInfo}>
                     <div className={styles.nickname}>{val.nickname}</div>
                     <div>{val.email}</div>
@@ -130,13 +126,7 @@ export const SearchFriends = () => {
       )}
       {userData && (
         <div className={styles.listCard}>
-          <img
-            className={styles.avatar}
-            src={API_URL + userData.avatarUrl}
-            height={"40px"}
-            width={"40px"}
-            alt="avatar"
-          ></img>
+          <Avatar data={userData} size={40} />
           <div className={styles.cardInfo}>
             <div className={styles.nickname}>{userData.nickname}</div>
             <div>{userData.email}</div>
