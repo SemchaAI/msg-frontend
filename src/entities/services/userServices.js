@@ -21,6 +21,12 @@ export const userApi = createApi({
       }),
       providesTags: (result) => ["User"],
     }),
+    getUser: builder.query({
+      query: (post) => ({
+        url: `/auth/user/${post.id}`,
+      }),
+      providesTags: (result) => ["User"],
+    }),
     getAllMessages: builder.query({
       query: (page) => ({
         url: `/message?page=${page}`,
@@ -103,6 +109,14 @@ export const userApi = createApi({
       query: (post) => ({
         url: "/user/upload/avatar",
         method: "POST",
+        body: post,
+      }),
+      invalidatesTags: (result) => ["User"],
+    }),
+    changeStatusUser: builder.mutation({
+      query: (post) => ({
+        url: "/user/status",
+        method: "PUT",
         body: post,
       }),
       invalidatesTags: (result) => ["User"],
