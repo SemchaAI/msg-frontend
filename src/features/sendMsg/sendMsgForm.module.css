@@ -36,11 +36,14 @@
     max-width: 375px;
     color: var(--primary-dark-blue);
 }
-.formInput::placeholder{
+input::placeholder, 
+input::-webkit-input-placeholder {
     font-weight: 600;
     font-size: 14px;
     color:  var(--neutral-grey);
 }
+
+
 
 .error{
     color: var(--negative);
