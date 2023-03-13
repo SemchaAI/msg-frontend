@@ -11,6 +11,8 @@
     width: 100%;
     z-index: 999; 
     background-color: var(--colors-bg-controls);
+    border-top: 1px solid var(--colors-button);
+    
 }
 
 .color{

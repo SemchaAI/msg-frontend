@@ -81,7 +81,7 @@ input::-webkit-input-placeholder {
     line-height: 150%;
 
 
-    color: var(--primary-light-blue);
+    color: var(--colors-button);
 
     cursor: pointer;
 }
