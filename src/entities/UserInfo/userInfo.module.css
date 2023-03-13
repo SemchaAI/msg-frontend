@@ -17,9 +17,8 @@
     position: absolute;
     border-bottom: 1px solid var(--neutral-grey);
 }
-.img{
-    border-radius: 35px;
-}
+
+
 .userInfo{
     margin-left: 15px;
 
@@ -90,21 +89,21 @@
     flex-direction: column;
     gap: 5px;
 
-    color: var(--neutral-darkest-grey);
+    color: var(--colors-text-dw-lg);
 }
 .nickname {
     color: var(--primary-blue);
 }
 .btnAdd{
     stroke: var(--positive);
-    fill: var(--colors-text);
+    fill: var(--colors-text-dg-lw);
 }
 .btnAdd:focus, .btnAdd:hover{
     fill: var(--positive-light);
 }
 .btnDecline{
     stroke: var(--negative);
-    fill: var(--colors-text);
+    fill: var(--colors-text-dg-lw);
 }
 .btnDecline:focus, .btnDecline:hover{
     fill: var(--negative-light);
