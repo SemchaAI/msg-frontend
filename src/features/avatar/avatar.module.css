@@ -1,0 +1,40 @@
+.img{
+    box-sizing: border-box;
+    
+}
+ 
+ @keyframes rotate {
+     100% {
+         transform: rotate(1turn);
+     }
+ }
+ .normal{
+    border-width: 4px ;
+    animation: borderRotate var(--d) linear infinite forwards;
+}
+.small{
+    border-width: 2px ;
+    animation: borderRotate var(--d) linear infinite forwards;
+}
+
+.male {
+    border-style: solid;
+     border-image: conic-gradient(from var(--angle), var(--c4), var(--c3) 0.1turn, var(--c3) 0.15turn, var(--c4) 0.25turn) 1;
+ }
+.female {
+    border-style: solid;
+     border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 1;
+ }
+.stone {
+    border-style: solid;
+     border-image: conic-gradient(from var(--angle), var(--c6), var(--c5) 0.1turn, var(--c5) 0.15turn, var(--c6) 0.25turn) 1;
+ }
+
+
+ 
+ @keyframes borderRotate {
+     100% {
+         --angle: 440deg;
+     }
+ }
+ 
