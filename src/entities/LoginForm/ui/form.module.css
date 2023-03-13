@@ -47,7 +47,7 @@
 .formInput::placeholder{
     font-weight: 600;
     font-size: 14px;
-    color:  var(--neutral-grey);
+    color:  var(--colors-text-dw-lg);
 }
 
 .error{
