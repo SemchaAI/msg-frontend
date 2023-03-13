@@ -7,9 +7,20 @@ import { ReactComponent as ChevronL } from "./images/chevronL.svg";
 import { ReactComponent as ChevronR } from "./images/chevronR.svg";
 import { SendMsgForm } from "../../features/sendMsg/SendMsgForm";
 import { useChatList } from "./hooks/useChatList";
+import { Avatar } from "../../features/avatar/Avatar";
+import { useNavigate } from "react-router-dom";
 
 export const ChatList = ({ data, userData, setPage, page, params }) => {
   const [messagesEndRef, hidden, scrollToBottom, handleScroll] = useChatList();
+
+  const navigate = useNavigate();
+  const clickHandler = (id) => {
+    navigate("/profile", {
+      state: {
+        id: id,
+      },
+    });
+  };
 
   return (
     <section className={styles.globalChat}>
@@ -28,15 +39,12 @@ export const ChatList = ({ data, userData, setPage, page, params }) => {
                   })}
                 >
                   <p className={styles.message}>{elem.text}</p>
-                  <div className={styles.userInfo}>
+                  <div
+                    className={styles.userInfo}
+                    onClick={() => clickHandler(elem.user)}
+                  >
                     <h3 className={styles.nickname}>{elem.nickname}</h3>
-                    <img
-                      className={styles.avatar}
-                      src={API_URL + elem.avatarUrl}
-                      height={"40px"}
-                      width={"40px"}
-                      alt="avatar"
-                    ></img>
+                    <Avatar data={elem} size={40} />
                   </div>
                 </li>
               ))}
@@ -76,6 +84,7 @@ export const ChatList = ({ data, userData, setPage, page, params }) => {
             id={params.id}
             nickname={userData.nickname}
             avatarUrl={userData.avatarUrl}
+            gender={userData.gender}
           />
         </>
       )}
