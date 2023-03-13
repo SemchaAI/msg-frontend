@@ -1,7 +1,8 @@
 .form{
     max-width: 345px;
     width: 100%;
-    padding: 15px;
+    height: 400px;
+    padding: 0px 15px;
     margin: 0 auto;
     position: relative;
     background-color: var(--colors-bg-controls);
@@ -11,7 +12,18 @@
     font-style: normal;
     font-weight: 800;
     font-size: 12px;
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
 }
+.form::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
 .formControl{
     display: flex;
     flex-direction: column;
@@ -29,6 +41,8 @@
     text-transform: capitalize;
 
     margin-top: 20px;
+    display: flex;
+    
 }
 .formInput{
     border: 1px solid var(--neutral-grey);
@@ -44,7 +58,9 @@
     width: 100%;
     color: var(--primary-dark-blue);
 }
-.formInput::placeholder{
+.formInput::placeholder, 
+.formInput::-webkit-input-placeholder, 
+.formInput::-moz-placeholder {
     font-weight: 600;
     font-size: 14px;
     color:  var(--neutral-grey);
@@ -67,6 +83,17 @@
 .formInput.succes{
     color: var(--positive) !important;
     border: 1px solid var(--positive) ;
+}
+
+.inputContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.gender{
+    display: flex;
+    margin-right: 10px;
+    gap: 10px;
 }
 
 .submit{

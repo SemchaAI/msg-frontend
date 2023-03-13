@@ -108,7 +108,7 @@ export const FormRegister = () => {
       </div>
       <div className={styles.formControl}>
         <div className={styles.labelContainer}>
-          <label className={styles.label} htmlFor="email">
+          <label className={styles.label} htmlFor="password">
             Password
           </label>
           {errors.password && (
@@ -138,6 +138,57 @@ export const FormRegister = () => {
           onBlur={(e) => setPassword(e.target.value)}
         />
       </div>
+      <div className={styles.formControl}>
+        <div className={styles.labelContainer}>
+          <label className={styles.label} htmlFor="gender">
+            Gender
+          </label>
+          {errors.password && (
+            <p
+              className={cn({
+                [styles.label]: true,
+                [styles.succes]: errors.password === undefined,
+                [styles.error]: errors.password !== undefined,
+              })}
+            >
+              This field is required.
+            </p>
+          )}
+        </div>
+        <div className={styles.inputContainer}>
+          <label className={styles.label} htmlFor="male">
+            <input
+              type="radio"
+              id="male"
+              value="male"
+              {...register("gender")}
+              className={styles.gender}
+            />
+            Male
+          </label>
+          <label className={styles.label} htmlFor="female">
+            <input
+              type="radio"
+              id="female"
+              value="female"
+              {...register("gender")}
+              className={styles.gender}
+            />
+            Female
+          </label>
+          <label className={styles.label} htmlFor="stone">
+            <input
+              type="radio"
+              id="stone"
+              value="stone"
+              {...register("gender")}
+              className={styles.gender}
+            />
+            Stone
+          </label>
+        </div>
+      </div>
+
       <button type="submit" className={styles.submit}>
         Register
       </button>
