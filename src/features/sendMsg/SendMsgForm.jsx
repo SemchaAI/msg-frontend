@@ -5,7 +5,7 @@ import styles from "./sendMsgForm.module.css";
 import cn from "classnames";
 import { userApi } from "../../entities/services/userServices";
 
-export const SendMsgForm = ({ avatarUrl, nickname, id, scroll }) => {
+export const SendMsgForm = ({ avatarUrl, nickname, gender, id, scroll }) => {
   const form = useForm({
     mode: "onChange", //mode: onChange | onBlur | onSubmit | onTouched | all
   });
@@ -29,6 +29,7 @@ export const SendMsgForm = ({ avatarUrl, nickname, id, scroll }) => {
       ...data,
       nickname,
       avatarUrl,
+      gender,
       id,
     };
     try {
