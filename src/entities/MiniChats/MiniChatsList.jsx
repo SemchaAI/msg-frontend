@@ -3,6 +3,7 @@ import cn from "classnames";
 import { userApi } from "../services/userServices";
 import { API_URL } from "../../shared/config";
 import { useNavigate } from "react-router-dom";
+import { Avatar } from "../../features/avatar/Avatar";
 
 export const MiniChatsList = () => {
   const { data, error, isLoading } = userApi.useGetMeQuery();
@@ -13,7 +14,6 @@ export const MiniChatsList = () => {
     navigate(`/chat/${_id}`);
   };
 
-  //console.log(data);
   return (
     <div className={styles.listContainer}>
       {data && (
@@ -25,13 +25,7 @@ export const MiniChatsList = () => {
                 className={styles.listCardBlock}
                 onClick={() => clickHandler(el._id)}
               >
-                <img
-                  className={styles.avatar}
-                  src={API_URL + el.avatarUrl}
-                  height={"40px"}
-                  width={"40px"}
-                  alt="avatar"
-                ></img>
+                <Avatar data={el} size={40} />
                 <div className={styles.cardInfo}>
                   <h3 className={styles.nickname}>{el.nickname}</h3>
                   <div>Tap To Open chat</div>
