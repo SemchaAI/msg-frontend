@@ -23,7 +23,7 @@ export const Routing = () => {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/chats" element={<ChatsPage />} />
-        <Route path="/chat/:id" element={<ChatPage />} />
+        <Route path="/chat/:id/:userId" element={<ChatPage />} />
         <Route path="*" element={<h1>Error</h1>} />
       </>
     )
