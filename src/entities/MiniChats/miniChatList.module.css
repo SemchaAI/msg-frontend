@@ -36,3 +36,15 @@
 .nickname {
     color: var(--colors-button);
 }
+.alert{
+    color: var(--colors-text-dw-lg);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    gap: 20px;
+}
+.hidden{
+    display: none;
+}
