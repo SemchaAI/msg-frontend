@@ -46,8 +46,8 @@ export const userApi = createApi({
       providesTags: (result) => ["User"],
     }),
     getChat: builder.query({
-      query: ({ id, page }) => ({
-        url: `/group/chat/${id}/${page}`,
+      query: ({ id, userId, page }) => ({
+        url: `/group/chat/${id}/${userId}/${page}`,
       }),
       providesTags: (result) => ["User"],
     }),
@@ -70,6 +70,13 @@ export const userApi = createApi({
     removeFriendReq: builder.mutation({
       query: (post) => ({
         url: `/delete/friendReq/${post}`,
+        method: "PUT",
+      }),
+      providesTags: (result) => ["User"],
+    }),
+    deleteFriend: builder.mutation({
+      query: (post) => ({
+        url: `/delete/friend/${post}`,
         method: "PUT",
       }),
       providesTags: (result) => ["User"],
