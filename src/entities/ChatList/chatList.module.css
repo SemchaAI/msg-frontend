@@ -51,21 +51,28 @@
     display: none;
 }
 .msgBlock{
-    margin-top: 10px;
-    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 15px;
     justify-items: right;
+    box-sizing: border-box;
+}
+.unRead{
+    height: 100%;
+    width: 100%;
+    background-color: var(--colors-msg);
+    opacity: 0.9;
 }
 .right{
-    margin-left: 48px;
-    margin-right: 16px;
+    padding-left: 48px;
+    padding-right: 16px;
 
     display: flex;
     justify-content: right;
     
 }
 .left{
-    margin-left: 16px;
-    margin-right: 48px;
+    padding-left: 16px;
+    padding-right: 48px;
     display: flex;
     justify-content: left;
     flex-direction: row-reverse;
