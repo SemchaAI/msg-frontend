@@ -36,6 +36,7 @@ export const ChatList = ({ data, userData, setPage, page, params }) => {
                   className={cn(styles.msgBlock, {
                     [styles.right]: userData._id !== elem.user,
                     [styles.left]: userData._id === elem.user,
+                    [styles.unRead]: elem.saw === false,
                   })}
                 >
                   <p className={styles.message}>{elem.text}</p>
